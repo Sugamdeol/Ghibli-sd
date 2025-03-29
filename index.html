@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghibli Art Transformer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Ghibli Art Transformer</h1>
+            <p>Transform your images into stunning Ghibli-style artwork with AI</p>
+        </header>
+
+        <main>
+            <div class="upload-container">
+                <div class="drop-area" id="dropArea">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="upload-icon">
+                        <path d="M12 16L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 11L12 8 15 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 16L16 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 19L16 22 13 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>Drag & drop your image here or <span class="browse-text">browse</span></p>
+                    <input type="file" id="fileInput" accept="image/*" class="file-input">
+                </div>
+            </div>
+
+            <div class="options-container">
+                <div class="style-options">
+                    <h3>Style Options</h3>
+                    <div class="radio-wrapper">
+                        <input type="radio" id="style-balanced" name="style" value="balanced" checked>
+                        <label for="style-balanced">Balanced</label>
+                    </div>
+                    <div class="radio-wrapper">
+                        <input type="radio" id="style-painterly" name="style" value="painterly">
+                        <label for="style-painterly">Painterly</label>
+                    </div>
+                    <div class="radio-wrapper">
+                        <input type="radio" id="style-dramatic" name="style" value="dramatic">
+                        <label for="style-dramatic">Dramatic</label>
+                    </div>
+                </div>
+                
+                <button id="convertBtn" class="convert-btn" disabled>Transform to Ghibli Art</button>
+            </div>
+
+            <div class="results-container hidden" id="resultsContainer">
+                <div class="result-images">
+                    <div class="image-container">
+                        <h3>Original Image</h3>
+                        <img id="originalImage" alt="Original image">
+                    </div>
+                    <div class="image-container">
+                        <h3>Ghibli Art</h3>
+                        <div class="result-wrapper">
+                            <img id="resultImage" alt="Transformed image">
+                            <div class="loading-overlay" id="loadingOverlay">
+                                <div class="spinner"></div>
+                                <p>Creating Ghibli magic...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button id="downloadBtn" class="action-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15L12 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 10L12 15 17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 21H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Download
+                    </button>
+                    <button id="shareBtn" class="action-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8.59 13.51L15.42 17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Share
+                    </button>
+                    <button id="newImageBtn" class="action-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 4L12 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 12L20 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        New Image
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Created with ❤️ using Pollinations AI</p>
+        </footer>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
