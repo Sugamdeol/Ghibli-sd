@@ -4,7 +4,9 @@ const CONFIG = {
     api: {
         imageUrl: "https://image.pollinations.ai/prompt/",
         authCode: "beesknees", // Authentication code for the API
-        defaultModel: "flux-anime", // Default image generation model
+        defaultModel: "flux", // Default image generation model
+        analyzeModel: "openai-large", // Model for detailed image analysis
+        noLogo: true, // Remove logo from generated images
     },
     
     // Image processing settings
@@ -13,7 +15,7 @@ const CONFIG = {
         maxHeight: 1024, // Maximum height for images before resizing
         quality: 0.9, // JPEG quality for resized images (0.0 to 1.0)
         fileTypes: ["image/jpeg", "image/png", "image/webp"], // Allowed file types
-        maxSizeMB: 5, // Maximum file size in MB
+        maxSizeMB: 20, // Maximum file size in MB
     },
     
     // Style presets for Ghibli transformations
@@ -29,4 +31,3 @@ const CONFIG = {
         max: 9999999
     }
 };
-

@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     async function analyzeImage(base64Image) {
         try {
-            const prompt = "Describe this image in detail, focusing on main subjects, colors, style, mood, and setting. Be concise but comprehensive.";
+            const prompt = "Describe this image in extreme detail, focusing on subjects, artistic elements, colors, style, composition, mood, lighting, setting, and any notable features. Be comprehensive and descriptive to enable accurate artistic reproduction in Studio Ghibli style.";
             const requestBody = {
                 "messages": [
                     {
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ]
                     }
                 ],
-                "model": "openai",
+                "model": CONFIG.api.analyzeModel,
                 "code": CONFIG.api.authCode
             };
 
@@ -251,12 +251,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function constructPrompt(imageDescription, stylePrompt) {
-        return `Transform this image: ${imageDescription}. Style: ${stylePrompt}`;
+        return `Reproduce this image in Studio Ghibli style: ${imageDescription}. Style: ${stylePrompt}`;
     }
     
     async function generateGhibliImage(prompt, seed) {
         const encodedPrompt = encodeURIComponent(prompt);
-        const url = `${CONFIG.api.imageUrl}${encodedPrompt}?model=${CONFIG.api.defaultModel}&seed=${seed}&code=${CONFIG.api.authCode}`;
+        const url = `${CONFIG.api.imageUrl}${encodedPrompt}?model=${CONFIG.api.defaultModel}&seed=${seed}&code=${CONFIG.api.authCode}&nologo=${CONFIG.api.noLogo}`;
         
         try {
             const response = await fetch(url);
